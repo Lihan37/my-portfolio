@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from "react";
+import CursorTrail from "./components/CursorTrail";
+import FloatingCode from "./components/FloatingCode";
 
 export default function App() {
   // ---- Mouse parallax for background blobs ----
   const parallaxRef = useRef(null);
   useEffect(() => {
     const el = parallaxRef.current;
+    const root = document.documentElement;
     if (!el) return;
     const handle = (e) => {
       const { innerWidth: w, innerHeight: h } = window;
@@ -12,6 +15,9 @@ export default function App() {
       const y = (e.clientY - h / 2) / (h / 2);
       el.style.setProperty("--mx", String(x));
       el.style.setProperty("--my", String(y));
+      // make global so other components (FloatingCode) can read
+      root.style.setProperty("--mx", String(x));
+      root.style.setProperty("--my", String(y));
     };
     window.addEventListener("mousemove", handle);
     return () => window.removeEventListener("mousemove", handle);
@@ -119,6 +125,10 @@ export default function App() {
         />
       </div>
 
+      {/* NEW: subtle particle trail + floating code glyphs */}
+      <CursorTrail />
+      <FloatingCode />
+
       {/* ========== Navbar ========== */}
       <header className="sticky top-0 z-40 backdrop-blur bg-slate-950/60 border-b border-white/5">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
@@ -126,7 +136,7 @@ export default function App() {
             href="#home"
             className="font-semibold tracking-wide inline-flex items-center gap-2"
           >
-            <span className="h-2 w-2 rounded-full bg-cyan-400" />
+            <img src="/er-logo.svg" alt="Eanur Rahman logo" className="h-5 w-5 rounded-sm" />
             <span>Eanur Rahman</span>
           </a>
           <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -207,10 +217,6 @@ export default function App() {
               >
                 Contact Me
               </a>
-              {/* চাইলে পরে রেজিউম যোগ করো */}
-              {/* <a href="/Eanur_Rahman_Resume.pdf" className="rounded-xl border border-cyan-500/40 hover:bg-cyan-500/10 px-5 py-2.5">
-          Download Résumé
-        </a> */}
             </div>
           </div>
 
@@ -341,11 +347,6 @@ export default function App() {
           Projects
         </h2>
 
-        {/* data */}
-        {/*
-    চাইলে পরে এই projects আর্রেটা ফাইলের উপরে নিয়ে রাখো।
-    অর্ডার: Learn with Hemel → BPS → ResumeCraft → LifeShare
-  */}
         {(() => {
           const projects = [
             {
@@ -415,15 +416,6 @@ export default function App() {
                         <path d="M9 5l7 7-7 7" />
                       </svg>
                     </a>
-                    {/* যদি GitHub repo থাকে, এখানে দ্বিতীয় বাটন দাও
-              <a
-                href="https://github.com/..."
-                target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 hover:border-white/30 px-4 py-2 transition"
-              >
-                Repo
-              </a>
-              */}
                   </div>
                 </article>
               ))}
