@@ -184,7 +184,7 @@ export default function App() {
             </span>
 
             <h1 className="mt-4 text-3xl md:text-2xl font-extrabold leading-tight">
-              <span className="text-cyan-400">MERN</span> Stack Developer
+              <span className="text-cyan-400">FULL</span> Stack Developer
               <br /> building scalable, high-impact products
             </h1>
 
@@ -239,7 +239,7 @@ export default function App() {
                     Eanur Rahman
                   </div>
                   <div className="text-slate-400 text-sm">
-                    Full-Stack MERN Developer • Dhaka, Bangladesh
+                    Full-Stack Developer • Dhaka, Bangladesh
                   </div>
                 </div>
               </div>
