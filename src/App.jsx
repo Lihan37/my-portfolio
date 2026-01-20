@@ -55,6 +55,7 @@ export default function App() {
       "HTML5",
       "CSS5 (Tailwind)",
       "JavaScript",
+      "Typescript",
       "React.js",
       "Next.js (Learning)",
     ],
@@ -134,28 +135,28 @@ export default function App() {
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
           <a
             href="#home"
-            className="font-semibold tracking-wide inline-flex items-center gap-2"
+            className="font-semibold tracking-wide inline-flex items-center gap-2 reveal"
           >
             <img src="/er-logo.svg" alt="Eanur Rahman logo" className="h-5 w-5 rounded-sm" />
             <span>Eanur Rahman</span>
           </a>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#about" className="text-slate-300 hover:text-white">
+            <a href="#about" className="text-slate-300 hover:text-white nav-link">
               About
             </a>
-            <a href="#projects" className="text-slate-300 hover:text-white">
+            <a href="#projects" className="text-slate-300 hover:text-white nav-link">
               Projects
             </a>
-            <a href="#skills" className="text-slate-300 hover:text-white">
+            <a href="#skills" className="text-slate-300 hover:text-white nav-link">
               Skills
             </a>
-            <a href="#contact" className="text-slate-300 hover:text-white">
+            <a href="#contact" className="text-slate-300 hover:text-white nav-link">
               Contact
             </a>
           </nav>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-4 py-2 transition"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-4 py-2 transition btn-glow"
           >
             Contact
             <svg
@@ -178,27 +179,27 @@ export default function App() {
       >
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs reveal delay-1">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
               Available for Collaboration
             </span>
 
-            <h1 className="mt-4 text-3xl md:text-2xl font-extrabold leading-tight">
+            <h1 className="mt-4 text-3xl md:text-2xl font-extrabold leading-tight reveal delay-2 text-hero">
               <span className="text-cyan-400">FULL</span> Stack Developer
               <br /> building scalable, high-impact products
             </h1>
 
-            <p className="mt-4 text-slate-300 max-w-xl">
+            <p className="mt-4 text-slate-300 max-w-xl reveal delay-3">
               I architect and ship clean, performant web applications with
               React, Node, Express, and MongoDB. I care about UX, accessibility,
               and meaningful micro-interactions—always aiming for reliability
               and speed in production.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 reveal delay-4">
               <a
                 href="#projects"
-                className="rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-5 py-2.5 transition inline-flex items-center gap-2"
+                className="rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-5 py-2.5 transition inline-flex items-center gap-2 btn-glow"
               >
                 View Projects
                 <svg
@@ -213,7 +214,7 @@ export default function App() {
               </a>
               <a
                 href="#contact"
-                className="rounded-xl border border-white/15 hover:border-white/30 px-5 py-2.5 inline-flex items-center gap-2"
+                className="rounded-xl border border-white/15 hover:border-white/30 px-5 py-2.5 inline-flex items-center gap-2 btn-glow"
               >
                 Contact Me
               </a>
@@ -223,7 +224,7 @@ export default function App() {
           {/* Profile card */}
           <div className="relative">
             <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-tr from-cyan-400/10 to-blue-400/0 blur-2xl" />
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl animate-[float_6s_ease-in-out_infinite]">
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl animate-[float_6s_ease-in-out_infinite] pulse-border reveal delay-3">
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <img
@@ -269,12 +270,12 @@ export default function App() {
 
       {/* ========== About ========== */}
       <section id="about" className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300">
+        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300 reveal">
           About Me
         </h2>
         <div className="mt-6 grid md:grid-cols-2 gap-8">
           {/* Left Column */}
-          <div className="space-y-4 leading-relaxed text-slate-300">
+          <div className="space-y-4 leading-relaxed text-slate-300 reveal delay-1">
             <p className="text-slate-200 font-semibold">
               Full-Stack MERN Developer
             </p>
@@ -315,25 +316,25 @@ export default function App() {
           </div>
 
           {/* Right Column - Quick Stats */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 card-hover reveal delay-2">
             <h3 className="font-semibold text-slate-200 mb-3">Quick Stats</h3>
             <ul className="grid grid-cols-2 gap-3 text-sm">
-              <li className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <li className="rounded-xl bg-white/5 border border-white/10 p-3 stat-chip">
                 ⚙️ 5+ Full-Stack Projects
               </li>
-              <li className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <li className="rounded-xl bg-white/5 border border-white/10 p-3 stat-chip">
                 🎯 Primary Focus: EdTech Solutions
               </li>
-              <li className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <li className="rounded-xl bg-white/5 border border-white/10 p-3 stat-chip">
                 🧪 Strong Foundation in JS & React
               </li>
-              <li className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <li className="rounded-xl bg-white/5 border border-white/10 p-3 stat-chip">
                 🎓 CSE Graduate — Daffodil International University
               </li>
-              <li className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <li className="rounded-xl bg-white/5 border border-white/10 p-3 stat-chip">
                 🌍 Based in Dhaka, Bangladesh
               </li>
-              <li className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <li className="rounded-xl bg-white/5 border border-white/10 p-3 stat-chip">
                 🤝 Open to Collaboration & Opportunities
               </li>
             </ul>
@@ -343,7 +344,7 @@ export default function App() {
 
       {/* ========== Projects ========== */}
       <section id="projects" className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300">
+        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300 reveal">
           Projects
         </h2>
 
@@ -356,10 +357,10 @@ export default function App() {
               live: "https://learnwithhemel.com/",
             },
             {
-              title: "Bangladesh Physiotherapy Society (BPS)",
-              desc: "Institutional website with members, notices, publications, gallery, contact. Scope for server-side pagination, search filters, and structured data/SEO.",
-              tags: ["Next/React", "Tailwind", "SEO", "Accessibility"],
-              live: "https://bps.org.bd/",
+              title: "Insomnia Fuel - Cafe in Sydney CBD",
+              desc: "Late-night cafe in Sydney CBD serving smash burgers, specialty coffee, and comfort food. Focus on clear menu messaging and brand-first presentation.",
+              tags: ["Branding", "Landing Page", "SEO", "Responsive"],
+              live: "https://insomniafuel.com.au/",
             },
             {
               title: "ResumeCraft — Resume/CV Builder",
@@ -380,7 +381,7 @@ export default function App() {
               {projects.map((p) => (
                 <article
                   key={p.title}
-                  className="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-cyan-400/40 transition"
+                  className="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-cyan-400/40 transition card-hover reveal"
                 >
                   <h3 className="text-xl font-semibold text-slate-100 group-hover:text-white">
                     {p.title}
@@ -403,7 +404,7 @@ export default function App() {
                       href={p.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-4 py-2 transition"
+                      className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-4 py-2 transition btn-glow"
                     >
                       Live
                       <svg
@@ -426,12 +427,12 @@ export default function App() {
 
       {/* ========== Skills ========== */}
       <section id="skills" className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300">Skills</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300 reveal">Skills</h2>
         <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {Object.entries(skills).map(([group, list]) => (
             <div
               key={group}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 card-hover reveal"
             >
               <h3 className="font-semibold text-slate-200">{group}</h3>
               <ul className="mt-3 space-y-2 text-slate-300">
@@ -449,11 +450,11 @@ export default function App() {
 
       {/* ========== Contact ========== */}
       <section id="contact" className="mx-auto max-w-3xl px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-cyan-300 text-center reveal">
           Contact Me
         </h2>
 
-        <p className="text-center text-slate-300 mt-3">
+        <p className="text-center text-slate-300 mt-3 reveal delay-1">
           You can also email me directly at{" "}
           <a
             className="text-cyan-300 hover:underline"
@@ -466,7 +467,7 @@ export default function App() {
         <form
           action="https://formspree.io/f/mqkvrwaz"
           method="POST"
-          className="mt-8 space-y-4"
+          className="mt-8 space-y-4 reveal delay-2"
           onSubmit={(e) => {
             e.preventDefault();
             const form = e.target;
@@ -501,7 +502,7 @@ export default function App() {
               name="name"
               placeholder="Your Name"
               required
-              className="w-full rounded-xl bg-white/5 border border-white/10 p-3 outline-none focus:border-cyan-400"
+              className="w-full rounded-xl bg-white/5 border border-white/10 p-3 outline-none focus:border-cyan-400 input-glow"
             />
           </div>
 
@@ -515,7 +516,7 @@ export default function App() {
               name="email"
               placeholder="Your Email"
               required
-              className="w-full rounded-xl bg-white/5 border border-white/10 p-3 outline-none focus:border-cyan-400"
+              className="w-full rounded-xl bg-white/5 border border-white/10 p-3 outline-none focus:border-cyan-400 input-glow"
             />
           </div>
 
@@ -529,13 +530,13 @@ export default function App() {
               rows="5"
               placeholder="Your Message"
               required
-              className="w-full rounded-xl bg-white/5 border border-white/10 p-3 outline-none focus:border-cyan-400"
+              className="w-full rounded-xl bg-white/5 border border-white/10 p-3 outline-none focus:border-cyan-400 input-glow"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-5 py-3 transition"
+            className="w-full rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-medium px-5 py-3 transition btn-glow"
           >
             Send Message
           </button>
@@ -579,3 +580,4 @@ export default function App() {
     </div>
   );
 }
+
