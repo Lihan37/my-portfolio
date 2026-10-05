@@ -14,40 +14,67 @@ const navLinks = [
 
 const projects = [
   {
+    title: "Briddhi - Mutual Fund Investment Platform",
+    desc: "Investment platform with mutual fund discovery, fund information, investor education, and account registration.",
+    tags: ["FinTech", "Mutual Funds", "Investor Education", "Responsive UI"],
+    live: "https://briddhi.net/",
+    preview: "/projects/briddhi.jpg",
+  },
+  {
+    title: "Bornil Vibes - Jewelry Storefront",
+    desc: "Handcrafted jewelry storefront with product categories, collection browsing, cart, and checkout for customers across Bangladesh.",
+    tags: ["E-commerce", "Jewelry", "Product Catalog", "Checkout"],
+    live: "https://bornilvibes.com/",
+    preview: "/projects/bornil-vibes.jpg",
+  },
+  {
+    title: "Pro Property Care Solutions - Service Website",
+    desc: "Property maintenance and repair website presenting residential and commercial services with clear navigation and quote requests.",
+    tags: ["Business Website", "Property Services", "Lead Generation", "Responsive"],
+    live: "https://www.propropertycaresolutions.com/",
+    preview: "/projects/pro-property-care.jpg",
+  },
+  {
     title: "Learn With Hemel - EdTech Platform",
     desc: "Production EdTech platform with role-based dashboards, video learning system, quizzes, analytics, and admin management.",
     tags: ["React", "Node.js", "Express", "MongoDB", "JWT", "Analytics"],
     live: "https://learnwithhemel.com/",
+    preview: "/projects/learn-with-hemel.jpg",
   },
   {
     title: "Insomnia Fuel - Cafe / Restaurant Website",
     desc: "Restaurant website featuring menu presentation, responsive layout, and customer-focused branding.",
     tags: ["Restaurant", "Responsive UI", "Branding", "Menu"],
     live: "https://insomniafuel.com.au/",
+    preview: "/projects/insomnia-fuel.jpg",
   },
   {
     title: "Bangladesh Physiotherapy Society (BPS)",
     desc: "Official membership registration and management system with authentication and document handling.",
     tags: ["Membership", "Auth", "Documents", "Admin System"],
     live: "https://bps.org.bd/",
+    previewStatus: "Homepage preview unavailable",
   },
   {
     title: "Energion E-Mobility - E-bike Selling Website",
     desc: "E-bike showcase and product presentation platform with modern responsive design.",
     tags: ["Product Showcase", "E-commerce UI", "Responsive", "Netlify"],
     live: "https://energion-emobility.netlify.app/",
+    previewStatus: "Site under maintenance",
   },
   {
     title: "John Belvedere Menu - Digital Menu",
     desc: "Digital restaurant menu system optimized for mobile users and customer accessibility.",
     tags: ["Digital Menu", "Mobile UX", "Restaurant", "Accessibility"],
     live: "https://johnbelvederemenu.netlify.app/menu",
+    preview: "/projects/john-belvedere.jpg",
   },
   {
     title: "Alif Restaurant - Restaurant Website",
     desc: "Restaurant website with menu presentation and responsive customer-facing design.",
     tags: ["Restaurant", "Menu", "Responsive Design", "Customer UX"],
     live: "https://alifrestaurant.netlify.app/",
+    preview: "/projects/alif-restaurant.jpg",
   },
 ];
 
@@ -303,7 +330,7 @@ export default function App() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-tr from-cyan-400/10 to-blue-400/0 blur-2xl" />
+            <div className="absolute inset-x-0 -inset-y-8 -z-10 rounded-[2rem] bg-gradient-to-tr from-cyan-400/10 to-blue-400/0 blur-2xl" />
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-2xl pulse-border reveal delay-3 sm:p-6 lg:animate-[float_6s_ease-in-out_infinite]">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <div className="relative shrink-0">
@@ -378,7 +405,7 @@ export default function App() {
             <h3 className="mb-3 font-semibold text-slate-200">Quick Stats</h3>
             <ul className="grid gap-3 text-sm sm:grid-cols-2">
               {[
-                "6 featured live projects",
+                `${projects.length} featured live projects`,
                 "Primary focus: EdTech and business websites",
                 "Production dashboard and admin experience",
                 "Responsive UI for mobile, tablet, and desktop",
@@ -404,8 +431,8 @@ export default function App() {
               Projects
             </h2>
             <p className="mt-2 max-w-2xl text-slate-300 reveal delay-1">
-              Selected live work across EdTech, restaurant websites, membership
-              systems, product showcases, and digital menus.
+              Selected live work across investment platforms, e-commerce,
+              business websites, EdTech, membership systems, and digital menus.
             </p>
           </div>
         </div>
@@ -414,8 +441,33 @@ export default function App() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-cyan-400/40 card-hover reveal"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-cyan-400/40 card-hover reveal"
             >
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit ${project.title}`}
+                className="block aspect-[8/5] shrink-0 overflow-hidden border-b border-white/10 bg-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
+              >
+                {project.preview ? <img
+                  src={project.preview}
+                  alt={`Homepage preview of ${project.title}`}
+                  width="1440"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover object-top transition-transform duration-300 motion-safe:group-hover:scale-[1.02]"
+                /> : (
+                  <div className="flex h-full flex-col items-center justify-center gap-2 px-6 text-center">
+                    <span className="text-lg font-semibold text-cyan-300">
+                      {new URL(project.live).hostname}
+                    </span>
+                    <span className="text-sm text-slate-400">{project.previewStatus}</span>
+                  </div>
+                )}
+              </a>
+              <div className="flex flex-1 flex-col p-6">
               <h3 className="text-xl font-semibold text-slate-100 group-hover:text-white">
                 {project.title}
               </h3>
@@ -451,6 +503,7 @@ export default function App() {
                     <path d="M7 17 17 7M9 7h8v8" />
                   </svg>
                 </a>
+              </div>
               </div>
             </article>
           ))}
