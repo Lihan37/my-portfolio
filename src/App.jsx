@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import CursorTrail from "./components/CursorTrail";
 import FloatingCode from "./components/FloatingCode";
+import ProjectsSection from "./components/ProjectsSection";
 
 const PROFILE_IMAGE =
-  "https://res.cloudinary.com/duaysox2a/image/upload/v1780739570/pfp_professional_uio3r3.png";
+  "https://i.ibb.co.com/qFhxQ42j/pfp-professional.png";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -19,6 +20,7 @@ const projects = [
     tags: ["FinTech", "Mutual Funds", "Investor Education", "Responsive UI"],
     live: "https://briddhi.net/",
     preview: "/projects/briddhi.jpg",
+    category: "Platforms",
   },
   {
     title: "Bornil Vibes - Jewelry Storefront",
@@ -26,6 +28,7 @@ const projects = [
     tags: ["E-commerce", "Jewelry", "Product Catalog", "Checkout"],
     live: "https://bornilvibes.com/",
     preview: "/projects/bornil-vibes.jpg",
+    category: "Commerce",
   },
   {
     title: "Pro Property Care Solutions - Service Website",
@@ -33,6 +36,7 @@ const projects = [
     tags: ["Business Website", "Property Services", "Lead Generation", "Responsive"],
     live: "https://www.propropertycaresolutions.com/",
     preview: "/projects/pro-property-care.jpg",
+    category: "Business",
   },
   {
     title: "Learn With Hemel - EdTech Platform",
@@ -40,6 +44,7 @@ const projects = [
     tags: ["React", "Node.js", "Express", "MongoDB", "JWT", "Analytics"],
     live: "https://learnwithhemel.com/",
     preview: "/projects/learn-with-hemel.jpg",
+    category: "Platforms",
   },
   {
     title: "Insomnia Fuel - Cafe / Restaurant Website",
@@ -47,6 +52,7 @@ const projects = [
     tags: ["Restaurant", "Responsive UI", "Branding", "Menu"],
     live: "https://insomniafuel.com.au/",
     preview: "/projects/insomnia-fuel.jpg",
+    category: "Hospitality",
   },
   {
     title: "Bangladesh Physiotherapy Society (BPS)",
@@ -54,13 +60,15 @@ const projects = [
     tags: ["Membership", "Auth", "Documents", "Admin System"],
     live: "https://bps.org.bd/",
     previewStatus: "Homepage preview unavailable",
+    category: "Platforms",
   },
   {
     title: "Energion E-Mobility - E-bike Selling Website",
     desc: "E-bike showcase and product presentation platform with modern responsive design.",
-    tags: ["Product Showcase", "E-commerce UI", "Responsive", "Netlify"],
-    live: "https://energion-emobility.netlify.app/",
-    previewStatus: "Site under maintenance",
+    tags: ["E-bikes", "Product Showcase", "E-commerce UI", "Responsive"],
+    live: "https://energion-emobility.com/",
+    preview: "/projects/energion.jpg",
+    category: "Commerce",
   },
   {
     title: "John Belvedere Menu - Digital Menu",
@@ -68,6 +76,7 @@ const projects = [
     tags: ["Digital Menu", "Mobile UX", "Restaurant", "Accessibility"],
     live: "https://johnbelvederemenu.netlify.app/menu",
     preview: "/projects/john-belvedere.jpg",
+    category: "Hospitality",
   },
   {
     title: "Alif Restaurant - Restaurant Website",
@@ -75,6 +84,7 @@ const projects = [
     tags: ["Restaurant", "Menu", "Responsive Design", "Customer UX"],
     live: "https://alifrestaurant.netlify.app/",
     preview: "/projects/alif-restaurant.jpg",
+    category: "Hospitality",
   },
 ];
 
@@ -424,91 +434,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="projects" className="mx-auto max-w-6xl px-4 py-12">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="text-3xl font-bold text-cyan-300 reveal md:text-4xl">
-              Projects
-            </h2>
-            <p className="mt-2 max-w-2xl text-slate-300 reveal delay-1">
-              Selected live work across investment platforms, e-commerce,
-              business websites, EdTech, membership systems, and digital menus.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
-            <article
-              key={project.title}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-cyan-400/40 card-hover reveal"
-            >
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Visit ${project.title}`}
-                className="block aspect-[8/5] shrink-0 overflow-hidden border-b border-white/10 bg-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
-              >
-                {project.preview ? <img
-                  src={project.preview}
-                  alt={`Homepage preview of ${project.title}`}
-                  width="1440"
-                  height="900"
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover object-top transition-transform duration-300 motion-safe:group-hover:scale-[1.02]"
-                /> : (
-                  <div className="flex h-full flex-col items-center justify-center gap-2 px-6 text-center">
-                    <span className="text-lg font-semibold text-cyan-300">
-                      {new URL(project.live).hostname}
-                    </span>
-                    <span className="text-sm text-slate-400">{project.previewStatus}</span>
-                  </div>
-                )}
-              </a>
-              <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-xl font-semibold text-slate-100 group-hover:text-white">
-                {project.title}
-              </h3>
-              <p className="mt-2 flex-1 text-slate-300">{project.desc}</p>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-5">
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 font-medium text-black transition hover:bg-cyan-400 btn-glow"
-                >
-                  Live
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M7 17 17 7M9 7h8v8" />
-                  </svg>
-                </a>
-              </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ProjectsSection projects={projects} />
 
       <section id="skills" className="mx-auto max-w-6xl px-4 py-12">
         <h2 className="text-3xl font-bold text-cyan-300 reveal md:text-4xl">
